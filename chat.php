@@ -35,13 +35,13 @@ include_once "header.php";
                 <div class="details">
                     <span><?php echo esc_js($row["fname"]);
                         " " .
-                        $row["lname"]; ?></span>
+                        esc_js($row["lname"]); ?></span>
                     <p><?php echo esc_js($row["status"]); ?></p>;
                 </div>
 <?php if ($_SESSION["is_guest"] === 1) { ?>
     <a href="php/logout.php" class="logout" style='float:right'>Close</a>
 <?php } else { ?>
-    htmlspecialchars("<a href="transfer.php?user_id=<?php echo $row['unique_id']?>" class="logout" style='float:right'>Transfer</a>", ENT_COMPAT, 'UTF-8');
+    <a href="transfer.php?user_id=<?php echo $row['unique_id']?>" class="logout" style='float:right'>Transfer</a>;
 <?php } ?>
             </header>
             <div class="chat-box">
