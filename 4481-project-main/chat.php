@@ -33,28 +33,28 @@ include_once "header.php";
 <?php } ?>
                 htmlspecialchars("<img src="php/images/<?php $row["img"]; ?>" alt="">", ENT_COMPAT, 'UTF-8');
                 <div class="details">
-                    htmlspecialchars("<span><?php echo $row["fname"], ENT_COMPAT, 'UTF-8' .
+                    <span><?php echo $row["fname"]
                         " " .
-                        $row["lname"], ENT_COMPAT, 'UTF-8'); ?></span>
-                    <p><?php echo $row["status"], ENT_COMPAT, 'UTF-8'; ?></p>", ENT_COMPAT, 'UTF-8');
+                        $row["lname"]; ?></span>
+                    htmlspecialchars("<p><?php echo $row["status"]; ?></p>;", ENT_COMPAT, 'UTF-8');
                 </div>
 <?php if ($_SESSION["is_guest"] === 1) { ?>
     <a href="php/logout.php" class="logout" style='float:right'>Close</a>
 <?php } else { ?>
-    <a href="transfer.php?user_id=<?php echo htmlspecialchars($row['unique_id'], ENT_COMPAT, 'UTF-8')?>" class="logout" style='float:right'>Transfer</a>
+    htmlspecialchars("<a href="transfer.php?user_id=<?php echo $row['unique_id']?>" class="logout" style='float:right'>Transfer</a>", ENT_COMPAT, 'UTF-8');
 <?php } ?>
             </header>
             <div class="chat-box">
 
             </div>
             <form action="#" class="typing-area">
-                <input type="text" class="incoming_id" name="incoming_id" value="<?php echo htmlspecialchars($user_id, ENT_COMPAT, 'UTF-8'); ?>" hidden>
+                htmlspecialchars("<input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>", ENT_COMPAT, 'UTF-8');
                 <input type="text" name="message" class="input-field" placeholder="Type a message here..." autocomplete="off">
                 <button><i class="fab fa-telegram-plane"></i></button>
             </form>
 
             <form action="#" method="POST" enctype="multipart/form-data" class="image-upload-form" autocomplete="off">
-                <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
+                htmlspecialchars("<input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>", ENT_COMPAT, 'UTF-8');
                 <input type="file" name="image" class="image-upload" accept="image/x-png,image/gif,image/jpeg,image/jpg">
                 <input type="submit" name="submit" value="Upload Image">
             </form>
