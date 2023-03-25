@@ -31,7 +31,7 @@ include_once "header.php";
 <?php if ($_SESSION["is_guest"] === 0) { ?>
                 <a href="users.php" class="back-icon"><i class="fas fa-arrow-left"></i></a>
 <?php } ?>
-                <img src="php/images/<?php echo htmlspecialchars($row["img"], ENT_COMPAT, 'UTF-8'); ?>" alt="">
+                htmlspecialchars("<img src="php/images/<?php $row["img"]; ?>" alt="">", ENT_COMPAT, 'UTF-8');
                 <div class="details">
                     <span><?php echo htmlspecialchars($row["fname"], ENT_COMPAT, 'UTF-8') .
                         " " .
