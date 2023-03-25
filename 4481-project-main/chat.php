@@ -33,10 +33,10 @@ include_once "header.php";
 <?php } ?>
                 htmlspecialchars("<img src="php/images/<?php $row["img"]; ?>" alt="">", ENT_COMPAT, 'UTF-8');
                 <div class="details">
-                    <span><?php echo htmlspecialchars($row["fname"], ENT_COMPAT, 'UTF-8') .
+                    htmlspecialchars("<span><?php echo $row["fname"], ENT_COMPAT, 'UTF-8' .
                         " " .
-                        htmlspecialchars($row["lname"], ENT_COMPAT, 'UTF-8'); ?></span>
-                    <p><?php echo htmlspecialchars($row["status"], ENT_COMPAT, 'UTF-8'); ?></p>
+                        $row["lname"], ENT_COMPAT, 'UTF-8'); ?></span>
+                    <p><?php echo $row["status"], ENT_COMPAT, 'UTF-8'; ?></p>", ENT_COMPAT, 'UTF-8');
                 </div>
 <?php if ($_SESSION["is_guest"] === 1) { ?>
     <a href="php/logout.php" class="logout" style='float:right'>Close</a>
