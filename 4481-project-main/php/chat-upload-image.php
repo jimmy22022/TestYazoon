@@ -30,7 +30,7 @@ if (isset($_POST["incoming_id"]) && isset($_FILES["image"])) {
             if ($result) {
                 echo "Image uploaded successfully";
             } else {
-                echo htmlspecialchars("Failed to send image. Error: " . mysqli_error($conn), ENT_COMPAT, 'UTF-8');
+                echo "Failed to send image. Error: " . mysqli_error($conn);
             }
         } else {
             echo "Error uploading image. Check file permissions.";
