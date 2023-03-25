@@ -33,10 +33,10 @@ include_once "header.php";
 <?php } ?>
                 htmlspecialchars("<img src="php/images/<?php $row["img"]; ?>" alt="">", ENT_COMPAT, 'UTF-8');
                 <div class="details">
-                    <span><?php echo $row["fname"];
+                    <span><?php echo esc_js($row["fname"]);
                         " " .
                         $row["lname"]; ?></span>
-                    <p><?php htmlspecialchars("echo $row["status"]", ENT_COMPAT, 'UTF-8'); ?></p>;
+                    <p><?php echo esc_js($row["status"]); ?></p>;
                 </div>
 <?php if ($_SESSION["is_guest"] === 1) { ?>
     <a href="php/logout.php" class="logout" style='float:right'>Close</a>
@@ -48,13 +48,13 @@ include_once "header.php";
 
             </div>
             <form action="#" class="typing-area">
-                htmlspecialchars("<input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>", ENT_COMPAT, 'UTF-8');
+                <input type="text" class="incoming_id" name="incoming_id" value="<?php echo esc_js($user_id); ?>" hidden>;
                 <input type="text" name="message" class="input-field" placeholder="Type a message here..." autocomplete="off">
                 <button><i class="fab fa-telegram-plane"></i></button>
             </form>
 
             <form action="#" method="POST" enctype="multipart/form-data" class="image-upload-form" autocomplete="off">
-                htmlspecialchars("<input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>", ENT_COMPAT, 'UTF-8');
+                <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>;
                 <input type="file" name="image" class="image-upload" accept="image/x-png,image/gif,image/jpeg,image/jpg">
                 <input type="submit" name="submit" value="Upload Image">
             </form>
