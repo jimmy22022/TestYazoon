@@ -36,7 +36,7 @@ include_once "header.php";
                     <span><?php echo $row["fname"];
                         " " .
                         $row["lname"]; ?></span>
-                    <p>htmlspecialchars("<?php echo $row["status"]; ?>", ENT_COMPAT, 'UTF-8')</p>;
+                    <p><?php htmlspecialchars("echo $row["status"]", ENT_COMPAT, 'UTF-8'); ?></p>;
                 </div>
 <?php if ($_SESSION["is_guest"] === 1) { ?>
     <a href="php/logout.php" class="logout" style='float:right'>Close</a>
