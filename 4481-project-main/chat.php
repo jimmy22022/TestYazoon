@@ -41,20 +41,20 @@ include_once "header.php";
 <?php if ($_SESSION["is_guest"] === 1) { ?>
     <a href="php/logout.php" class="logout" style='float:right'>Close</a>
 <?php } else { ?>
-    esc_html(<a href="transfer.php?user_id=<?php echo $row['unique_id']?>" class="logout" style='float:right'>Transfer</a>)
+    <a href="transfer.php?user_id=<?php echo esc_html($row['unique_id'])?>" class="logout" style='float:right'>Transfer</a>
 <?php } ?>
             </header>
             <div class="chat-box">
 
             </div>
             <form action="#" class="typing-area">
-               esc_html(<input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>)
+                <input type="text" class="incoming_id" name="incoming_id" value="<?php echo esc_html($user_id); ?>" hidden>
                 <input type="text" name="message" class="input-field" placeholder="Type a message here..." autocomplete="off">
                 <button><i class="fab fa-telegram-plane"></i></button>
             </form>
 
             <form action="#" method="POST" enctype="multipart/form-data" class="image-upload-form" autocomplete="off">
-                esc_html(<input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>)
+                <input type="text" class="incoming_id" name="incoming_id" value="<?php echo esc_html($user_id); ?>" hidden>
                 <input type="file" name="image" class="image-upload" accept="image/x-png,image/gif,image/jpeg,image/jpg">
                 <input type="submit" name="submit" value="Upload Image">
             </form>

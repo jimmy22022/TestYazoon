@@ -29,11 +29,11 @@ if (!isset($_SESSION['unique_id']) || $_SESSION["is_guest"] !== 0) {
                     ?>
                     <img src="php/images/<?php echo esc_html($row['img']); ?>" alt="">
                     <div class="details">
-                        esc_html(<span><?php echo $row['fname'] . " " . $row['lname'] ?></span>)
-                        esc_html(<p><?php echo $row['status']; ?></p>)
+                        <span><?php echo esc_html($row['fname']) . " " . esc_html($row['lname']) ?></span>
+                        <p><?php echo esc_html($row['status']); ?></p>
                     </div>
                 </div>
-                esc_html(<a href="php/logout.php?logout_id=<?php echo $row['unique_id']; ?>" class="logout">Logout</a>)
+                <a href="php/logout.php?logout_id=<?php echo esc_html($row['unique_id']); ?>" class="logout">Logout</a>
             </header>
             <div class="search">
                 <span class="text">Select a user to start chat</span>
