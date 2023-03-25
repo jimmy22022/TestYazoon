@@ -6,6 +6,6 @@
 
   $conn = mysqli_connect($host, $username, $password, $database);
   if(!$conn){
-    echo "Database connection error".mysqli_connect_error();
+    echo mysqli_real_escape_string("Database connection error".mysqli_connect_error());
   }
 ?>

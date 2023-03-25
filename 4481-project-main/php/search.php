@@ -14,5 +14,5 @@ if(mysqli_num_rows($query) > 0){ // if users are found in the database
 } else{
     $output .= 'No user found related to your search term'; // if no users are found, set the output message
 }
-echo $output; // output the search results or message
+echo esc_html($output); // output the search results or message
 ?>

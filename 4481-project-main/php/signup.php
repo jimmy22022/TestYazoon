@@ -30,7 +30,7 @@ if (
             );
             if (mysqli_num_rows($sql) > 0) {
                 // If email address already exists, inform the user.
-                echo "$email - this email already exists!";
+                echo esc_html("$email - this email already exists!");
             } else {
                 // Check if user uploaded an image.
                 if (isset($_FILES["image"])) {

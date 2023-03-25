@@ -31,30 +31,30 @@ include_once "header.php";
 <?php if ($_SESSION["is_guest"] === 0) { ?>
                 <a href="users.php" class="back-icon"><i class="fas fa-arrow-left"></i></a>
 <?php } ?>
-                <img src="php/images/<?php echo $row["img"]; ?>" alt="">
+                <img src="php/images/<?php echo esc_html($row["img"]); ?>" alt="">
                 <div class="details">
-                    <span><?php echo $row["fname"] .
+                    <span><?php echo esc_html($row["fname"]) .
                         " " .
                         $row["lname"]; ?></span>
-                    <p><?php echo $row["status"]; ?></p>
+                    <p><?php echo esc_html($row["status"]); ?></p>
                 </div>
 <?php if ($_SESSION["is_guest"] === 1) { ?>
     <a href="php/logout.php" class="logout" style='float:right'>Close</a>
 <?php } else { ?>
-    <a href="transfer.php?user_id=<?php echo $row['unique_id']?>" class="logout" style='float:right'>Transfer</a>
+    esc_html(<a href="transfer.php?user_id=<?php echo $row['unique_id']?>" class="logout" style='float:right'>Transfer</a>)
 <?php } ?>
             </header>
             <div class="chat-box">
 
             </div>
             <form action="#" class="typing-area">
-                <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
+               esc_html(<input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>)
                 <input type="text" name="message" class="input-field" placeholder="Type a message here..." autocomplete="off">
                 <button><i class="fab fa-telegram-plane"></i></button>
             </form>
 
             <form action="#" method="POST" enctype="multipart/form-data" class="image-upload-form" autocomplete="off">
-                <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
+                esc_html(<input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>)
                 <input type="file" name="image" class="image-upload" accept="image/x-png,image/gif,image/jpeg,image/jpg">
                 <input type="submit" name="submit" value="Upload Image">
             </form>
